@@ -1,0 +1,67 @@
+.jfx-button {
+    -jfx-button-type: RAISED;
+    -fx-text-fill: #000;
+    -fx-font-size: 16;
+}
+
+/*!* 鼠标悬停时，按钮突出 *!*/
+.jfx-button:hover{
+    -fx-background-color: white;
+}
+
+/* 按钮选中时，按钮突出 */
+.jfx-button:focused{
+    -fx-background-color: white;
+}
+
+/* 修改Tab中文本的颜色 */
+.tab-label {
+    -fx-text-fill: #383838;
+}
+
+
+/* 子代选择器，Tab选中的时候选择其子元素tab-label */
+.tab:selected .tab-label {
+    -fx-text-fill: #1E90FF;
+}
+
+/* 修改Tab中背景颜色*/
+.jfx-tab-pane .headers-region {
+    -fx-background-color: #fff;
+}
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #fff;
+}
+
+/*transparent 原本的灰色*/
+.menu-button {
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-text-fill: black;
+}
+
+/*.menu-button:hover {
+    -fx-background-color: lightblue;
+}
+
+.menu-button-selected {
+    -fx-background-color: lightblue;
+    -fx-text-fill: white;
+}*/
+
+
+.jfx-button:pressed {
+    -fx-background-color: #ff0000; /* 按下后变成红色 */
+    -fx-text-fill: #ffff00; /* 文字颜色变成白色 */
+}
+
+#oa {
+    -fx-font-size: 14;
+}
+
+/* styles.css */
+.text-field-border {
+    -fx-border-color: black;    /* 边框颜色 */
+    -fx-border-width: 1px;      /* 边框宽度 */
+    -fx-padding: 5px;           /* 内边距 */
+}

@@ -1,0 +1,18 @@
+/* BootstrapFX 按钮样式 */
+.btn {
+    -fx-background-color: #007bff; /* 默认按钮颜色 */
+    -fx-text-fill: white;
+}
+
+/* 按钮点击时的样式 */
+.btn:pressed {
+    -fx-background-color: #ff0000; /* 按下后变成红色 */
+}
+
+/* styles.css */
+.text-field-border {
+    -fx-border-color: black;    /* 边框颜色 */
+    -fx-border-width: 2px;      /* 边框宽度 */
+    -fx-border-radius: 5px;     /* 边框圆角半径 */
+    -fx-padding: 5px;           /* 内边距 */
+}
