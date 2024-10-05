@@ -46,6 +46,10 @@
 <!--                           <Button accessibleText="Shiro" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="Shiro" />
                            <Button accessibleText="Struts2" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="Struts2" />-->
                            <Button accessibleText="CVE-2024-45507" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="CVE-2024-45507" />
+                           <Button accessibleText="CVE-2024-45195" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="CVE-2024-45195" />
+                           <Button accessibleText="CVE-2024-38856" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="CVE-2024-38856" />
+                           <Button accessibleText="CVE-2024-36104" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="CVE-2024-36104" />
+                           <Button accessibleText="CVE-2024-32113" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="CVE-2024-32113" />
                            <Button accessibleText="Others" prefHeight="43.0" prefWidth="127.0" styleClass="menu-button" text="Others" />
                         </children>
                         <padding>

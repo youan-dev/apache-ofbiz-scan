@@ -8,11 +8,11 @@ package org.tyby.javaapacheexp.core;
 
 public class Constants {
 
-    public static String NAME = "JavaSecScan";
+    public static String NAME = "Apache-ofbiz-scan";
 
     public static String VERSION = "v1.0.0 ";
 
-    public static String AUTHOR = "panda";
+    public static String AUTHOR = "youan";
 
     public static String SECURITYSTATEMENT = "\t\t\t\t\t\t\t\t\t----------------------------------------------------------------\r\n\t\t\t" +
             "\t\t\t\t\t\t\t\t本工具仅提供给安全测试人员进行安全自查使用\r\n\t\t\t" +
