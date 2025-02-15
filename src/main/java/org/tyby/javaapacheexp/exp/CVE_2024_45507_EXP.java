@@ -14,9 +14,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * @author yhy
- * @date 2021/8/18 19:37
- * @github https://github.com/yhy0
+ * @author zzt
  * 漏洞利用编写示例 ,必须实现 ExploitInterface
  */
 
